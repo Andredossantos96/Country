@@ -59,7 +59,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
 
         // alterar título da ActionBar
-        supportActionBar?.title = "Paises"
+        supportActionBar?.title = "Paises do mundo"
 
         // up navigation
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -88,23 +88,23 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_diciplinas -> {
-                Toast.makeText(this, "Clicou Disciplinas", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Países", Toast.LENGTH_SHORT).show()
             }
 
             R.id.nav_mensagens -> {
-                Toast.makeText(this, "Clicou Mensagens", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Mensagens", Toast.LENGTH_SHORT).show()
             }
 
             R.id.nav_forum -> {
-                Toast.makeText(this, "Clicou Forum", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Informações", Toast.LENGTH_SHORT).show()
             }
 
             R.id.nav_localizacao -> {
-                Toast.makeText(this, "Clicou Localização", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Localização", Toast.LENGTH_SHORT).show()
             }
 
             R.id.nav_config -> {
-                Toast.makeText(this, "Clicou Config", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Config", Toast.LENGTH_SHORT).show()
             }
         }
 

@@ -7,11 +7,15 @@ import android.widget.*
 import kotlinx.android.synthetic.main.login.*
 
 class MainActivity : DebugActivity() {
+    private lateinit var usuarioNome: EditText
+    private lateinit var usuarioSenha: EditText
 
     private val context: Context get() = this
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
+        usuarioNome = findViewById(R.id.campo_usuario)
+        usuarioSenha = findViewById(R.id.campo_senha)
 
         // encontra objeto pelo id
         campo_imagem.setImageResource(R.drawable.mundo_login)
@@ -38,17 +42,6 @@ class MainActivity : DebugActivity() {
         val valorSenha = campo_senha.text.toString()
         Toast.makeText(context, "$valorUsuario ", Toast.LENGTH_LONG).show()
 
-
-        if  (valorUsuario != "aluno") {
-           // botao_login.setError("usuario invalido")
-            Toast.makeText(context, "usuario invalido", Toast.LENGTH_LONG).show()
-
-        }
-
-        if  (valorSenha != "impacta") {
-            Toast.makeText(context, "senha invalida", Toast.LENGTH_LONG).show()
-        }
-
         // criar intent
         val intent = Intent(context, TelaInicialActivity::class.java)
         // colocar parâmetros (opcional)
@@ -59,11 +52,14 @@ class MainActivity : DebugActivity() {
         // enviar parâmetros simplificado
         intent.putExtra("numero", 10)
 
-        // fazer a chamada
-        //startActivity(intent)
+        if (valorUsuario != "aluno" || valorSenha != "impacta")  {
+            usuarioNome.setError("usuario invalido")
+            usuarioSenha.setError("senha invalida")
+            Toast.makeText(this, "Insira usuário ou senha corretamente", Toast.LENGTH_LONG).show()
+        } else {
+            startActivity(intent)
+        }
 
-        // fazer a chamada esperando resultado
-        startActivityForResult(intent, 1)
 
     }
 
