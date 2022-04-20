@@ -17,21 +17,10 @@ class MainActivity : DebugActivity() {
         usuarioNome = findViewById(R.id.campo_usuario)
         usuarioSenha = findViewById(R.id.campo_senha)
 
-        // encontra objeto pelo id
         campo_imagem.setImageResource(R.drawable.mundo_login)
 
         texto_login.text = getString(R.string.mensagem_login)
 
-
-
-        // evento no botao de login forma 1
-//        botao_login.setOnClickListener {
-//            val valorUsuario = campo_usuario.text.toString()
-//            val valorSenha = campo_senha.text.toString()
-//            Toast.makeText(this, "$valorUsuario : $valorSenha", Toast.LENGTH_LONG).show()
-//        }
-
-        // segunda forma: delegar para método
         botao_login.setOnClickListener {onClickLogin() }
 
 
@@ -42,19 +31,19 @@ class MainActivity : DebugActivity() {
         val valorSenha = campo_senha.text.toString()
         Toast.makeText(context, "$valorUsuario ", Toast.LENGTH_LONG).show()
 
-        // criar intent
+
         val intent = Intent(context, TelaInicialActivity::class.java)
-        // colocar parâmetros (opcional)
+
         val params = Bundle()
         params.putString("usuario", valorUsuario)
         intent.putExtras(params)
 
-        // enviar parâmetros simplificado
+
         intent.putExtra("numero", 10)
 
         if (valorUsuario != "aluno" || valorSenha != "impacta")  {
-            usuarioNome.setError("usuario invalido")
-            usuarioSenha.setError("senha invalida")
+            usuarioNome.setError("Usuario Invalido")
+            usuarioSenha.setError("Senha Invalida")
             Toast.makeText(this, "Insira usuário ou senha corretamente", Toast.LENGTH_LONG).show()
         } else {
             startActivity(intent)
@@ -62,7 +51,6 @@ class MainActivity : DebugActivity() {
 
 
     }
-
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

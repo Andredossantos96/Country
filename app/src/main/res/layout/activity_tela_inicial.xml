@@ -22,19 +22,6 @@
             android:layout_height="wrap_content"
             android:text="TextView" />
 
-        <!-- Colocar cardview com as disciplinas-->
-        <!--        <androidx.recyclerview.widget.RecyclerView-->
-        <!--            android:id="@+id/recyclerDisciplinas"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:cacheColorHint="@android:color/transparent"-->
-        <!--            android:clipToPadding="false"-->
-        <!--            android:divider="@null"-->
-        <!--            android:dividerHeight="0dp"-->
-        <!--            android:listSelector="@android:color/transparent"-->
-        <!--            android:scrollbarStyle="outsideOverlay"-->
-        <!--            android:scrollbars="vertical">-->
-        <!--        </androidx.recyclerview.widget.RecyclerView>-->
 
         <TextView
             android:id="@+id/Brasil"
@@ -137,7 +124,6 @@
             android:layout_height="match_parent">
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -156,8 +142,6 @@
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
-
-
 
 
     <!--Menu lateral-->
