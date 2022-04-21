@@ -37,7 +37,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
         Toast.makeText(this, "Nome do usuário: $usuario", Toast.LENGTH_LONG).show()
 
-        // mensagemInicial.text = "Bem vindo $usuario"
+        mensagemInicial.text = "Bem vindo $usuario"
 
 
         botaoSair.setOnClickListener {cliqueSair()}
