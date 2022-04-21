@@ -12,6 +12,8 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_tela_inicial.*
 import kotlinx.android.synthetic.main.menu_lateral_cabecalho.*
@@ -22,6 +24,9 @@ import kotlinx.android.synthetic.main.toolbar.*
 class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private val context: Context get() = this
+    private var paises = listOf<Paises>()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_inicial)
@@ -32,7 +37,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
         Toast.makeText(this, "Nome do usuário: $usuario", Toast.LENGTH_LONG).show()
 
-        mensagemInicial.text = "Bem vindo $usuario"
+        // mensagemInicial.text = "Bem vindo $usuario"
 
 
         botaoSair.setOnClickListener {cliqueSair()}
@@ -45,6 +50,30 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         configuraMenuLateral()
+
+        // configurar cardview
+        recyclerDisciplinas?.layoutManager = LinearLayoutManager(context)
+        recyclerDisciplinas?.itemAnimator = DefaultItemAnimator()
+        recyclerDisciplinas?.setHasFixedSize(true)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // task para recuperar as disciplinas
+        taskPaises()
+    }
+
+    fun taskPaises() {
+        this.paises = PaisesService.getDisciplinas(context)
+        // atualizar lista
+        recyclerDisciplinas?.adapter = PaisesAdapter(paises) {onClickPais(it)}
+    }
+
+    fun onClickPais(pais: Paises) {
+        Toast.makeText(context, "Clicou pais ${pais.nome}", Toast.LENGTH_SHORT).show()
+        val intent = Intent(context, PaisesActivity::class.java)
+        intent.putExtra("paise", pais)
+        startActivity(intent)
     }
 
     private fun configuraMenuLateral() {
@@ -127,8 +156,3 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         return super.onOptionsItemSelected(item)
     }
 }
-
-
-
-
-

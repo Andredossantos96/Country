@@ -16,6 +16,26 @@
 
         <include layout="@layout/toolbar" />
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Colocar cardview com as disciplinas-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerDisciplinas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="@android:color/transparent"
+                android:clipToPadding="false"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:listSelector="@android:color/transparent"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbars="vertical">
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </ScrollView>
+
         <TextView
             android:id="@+id/mensagemInicial"
             android:layout_width="match_parent"
@@ -23,101 +43,101 @@
             android:text="TextView" />
 
 
-        <TextView
-            android:id="@+id/Brasil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Brasil" />
-        <TextView
-            android:id="@+id/Peru"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Peru" />
-        <TextView
-            android:id="@+id/Paraguai"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Paraguai" />
-        <TextView
-            android:id="@+id/branco"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Uruguai" />
-        <TextView
-            android:id="@+id/Japão"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Japão" />
-        <TextView
-            android:id="@+id/Chile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Chile" />
-        <TextView
-            android:id="@+id/india"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="india" />
-        <TextView
-            android:id="@+id/Taiwan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Taiwan" />
-        <TextView
-            android:id="@+id/França"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="França" />
-        <TextView
-            android:id="@+id/Portugual"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Portugual" />
-        <TextView
-            android:id="@+id/Argentina"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Argentina" />
-        <TextView
-            android:id="@+id/Singapura"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Singapura" />
-        <TextView
-            android:id="@+id/Bolivia"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bolivia" />
-        <TextView
-            android:id="@+id/Canada"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Canada" />
-        <TextView
-            android:id="@+id/EUA"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="EUA" />
-        <TextView
-            android:id="@+id/Inglaterra"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Inglaterra" />
-        <TextView
-            android:id="@+id/Israel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Israel" />
-        <TextView
-            android:id="@+id/Mongólia"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mongólia" />
-        <TextView
-            android:id="@+id/Turquia"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Turquia" />
+        <!--        <TextView-->
+        <!--            android:id="@+id/Brasil"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Brasil" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/Peru"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Peru" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/Paraguai"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Paraguai" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/branco"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Uruguai" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/Japão"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Japão" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/Chile"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Chile" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/india"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="india" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/Taiwan"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Taiwan" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/França"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="França" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/Portugual"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Portugual" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/Argentina"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Argentina" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/Singapura"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Singapura" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/Bolivia"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Bolivia" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/Canada"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Canada" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/EUA"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="EUA" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/Inglaterra"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Inglaterra" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/Israel"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Israel" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/Mongólia"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Mongólia" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/Turquia"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Turquia" />-->
 
         <ScrollView
             android:layout_width="match_parent"
