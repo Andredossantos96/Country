@@ -59,15 +59,33 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
     override fun onResume() {
         super.onResume()
-        // task para recuperar as disciplinas
+        // task para recuperar os paises
         taskPaises()
     }
 
     fun taskPaises() {
+
+        // Criar a Thread
+        Thread {
+            // Código para procurar as disciplinas
+            // que será executado em segundo plano / Thread separada
+            paises = PaisesService.getDisciplinas()
+            runOnUiThread {
+                // Código para atualizar a UI com a lista de disciplinas
+                recyclerDisciplinas?.adapter = PaisesAdapter(paises) { onClickPais(it) }
+                // enviar notificação
+               // enviaNotificacao(this.disciplinas.get(0))
+
+            }
+        }.start()
+
+    }
+
+   /* fun taskPaises() {
         this.paises = PaisesService.getDisciplinas(context)
         // atualizar lista
         recyclerDisciplinas?.adapter = PaisesAdapter(paises) {onClickPais(it)}
-    }
+    }*/
 
     fun onClickPais(pais: Paises) {
         Toast.makeText(context, "Clicou pais ${pais.nome}", Toast.LENGTH_SHORT).show()

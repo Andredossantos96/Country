@@ -8,9 +8,20 @@ class Paises : Serializable {
     var nome = ""
     var ementa = ""
     var foto = ""
+    var professor = ""
 
 
-    override fun toString(): String {
+
+   /* var area: String = ""
+    var localizacao: String = ""
+    var linguas: String = ""
+    var governo: String = ""
+    var unidadesMonetarias: String = ""
+    var historico: String = ""*/
+
+
+
+   /* override fun toString(): String {
         return "Pais(nome='$nome')"
-    }
+    }*/
 }
