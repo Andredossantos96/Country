@@ -5,19 +5,16 @@ import java.io.Serializable
 class Paises : Serializable {
 
     var id:Long = 0
+    var bandeira = ""
+    var capital = ""
+    var continente = ""
+    var latitude = ""
+    var longitude = ""
     var nome = ""
-    var ementa = ""
-    var foto = ""
-    var professor = ""
+    var populacao = ""
 
 
 
-   /* var area: String = ""
-    var localizacao: String = ""
-    var linguas: String = ""
-    var governo: String = ""
-    var unidadesMonetarias: String = ""
-    var historico: String = ""*/
 
 
 

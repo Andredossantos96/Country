@@ -55,6 +55,18 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         recyclerDisciplinas?.layoutManager = LinearLayoutManager(context)
         recyclerDisciplinas?.itemAnimator = DefaultItemAnimator()
         recyclerDisciplinas?.setHasFixedSize(true)
+
+        val intentPaises = Intent(this, PaisesBarraLateralActivity::class.java)
+        val intentinformacoes = Intent(this, InformacoesActivity::class.java)
+        val intentlocalizacao = Intent(this, localizacaoActivity::class.java)
+        menu_lateral.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_diciplinas -> startActivity(intentPaises)
+                R.id.nav_forum -> startActivity(intentinformacoes)
+                R.id.nav_localizacao -> startActivity(intentlocalizacao)
+            }
+            true
+        }
     }
 
     override fun onResume() {

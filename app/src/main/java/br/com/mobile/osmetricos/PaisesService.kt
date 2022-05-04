@@ -9,13 +9,13 @@ import kotlin.math.log
 
 object PaisesService {
 
-    val host = "https://fesousa.pythonanywhere.com"
+    val host = "https://osmetricos.com.br"
     val TAG = "WS_LMSApp"
 
     fun getDisciplinas (): List<Paises> {
         val paises = mutableListOf<Paises>()
 
-        var url = "$host/disciplinas"
+        var url = "$host/paises"
         val json = URL(url).readText()
         Log.d(TAG, json)
 
