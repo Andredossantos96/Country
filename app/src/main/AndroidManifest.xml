@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Countries">
         <activity
+            android:name=".LocalizacaoActivity"
+            android:exported="false" />
+        <activity
             android:name=".InformacoesActivity"
             android:exported="false" />
         <activity

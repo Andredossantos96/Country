@@ -58,7 +58,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
         val intentPaises = Intent(this, PaisesBarraLateralActivity::class.java)
         val intentinformacoes = Intent(this, InformacoesActivity::class.java)
-        val intentlocalizacao = Intent(this, localizacaoActivity::class.java)
+        val intentlocalizacao = Intent(this, LocalizacaoActivity::class.java)
         menu_lateral.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_diciplinas -> startActivity(intentPaises)
