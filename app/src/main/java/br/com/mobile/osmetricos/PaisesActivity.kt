@@ -27,7 +27,7 @@ class PaisesActivity : DebugActivity() {
 
         // atualizar dados da disciplina
         nomeDisciplina.text = paises?.nome
-        Picasso.with(this).load(paises?.foto).fit().into(imagemDisciplina,
+        Picasso.with(this).load(paises?.bandeira).fit().into(imagemDisciplina,
                 object: com.squareup.picasso.Callback{
                     override fun onSuccess() {}
 

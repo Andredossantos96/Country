@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.squareup.picasso.Picasso
-import  kotlinx.android.synthetic.main.activity_paises.*
 
 // define o construtor que recebe a lista de disciplinas e o evento de clique
 class PaisesAdapter (
@@ -54,15 +53,15 @@ class PaisesAdapter (
         val context = holder.itemView.context
 
         // recuperar objeto disciplina
-        val disciplina = disciplinas[position]
+        val paises = disciplinas[position]
 
         // atualizar dados de disciplina
 
-        holder.cardNome.text = disciplina.nome
+        holder.cardNome.text = paises.nome
         holder.cardProgress.visibility = View.VISIBLE
 
         // download da imagem
-        Picasso.with(context).load(disciplina.foto).fit().into(holder.cardImg,
+        Picasso.with(context).load(paises.bandeira).fit().into(holder.cardImg,
                 object: com.squareup.picasso.Callback{
                     override fun onSuccess() {
                         holder.cardProgress.visibility = View.GONE
@@ -74,6 +73,6 @@ class PaisesAdapter (
                 })
 
         // adiciona evento de clique
-        holder.itemView.setOnClickListener {onClick(disciplina)}
+        holder.itemView.setOnClickListener {onClick(paises)}
     }
 }
