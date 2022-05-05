@@ -8,7 +8,7 @@ class InformacoesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_informacoes2)
-        supportActionBar?.title = "Detalhes"
+        supportActionBar?.title = "Informações"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     }

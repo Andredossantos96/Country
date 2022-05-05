@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import com.squareup.picasso.Picasso
+
 
 // define o construtor que recebe a lista de disciplinas e o evento de clique
 class PaisesAdapter (
@@ -18,16 +20,25 @@ class PaisesAdapter (
     // ViewHolder com os elemetos da tela
     class DisciplinasViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val cardNome: TextView
+        val cardCapital: TextView
+        val cardLongitude: TextView
+        val cardLatitude: TextView
+        val cardPopulacao: TextView
+        val cardLocalization: TextView
         val cardImg : ImageView
         var cardProgress: ProgressBar
         var cardView: CardView
 
         init {
             cardNome = view.findViewById<TextView>(R.id.cardNome)
+            cardLocalization = view.findViewById(R.id.cardLocalization)
             cardImg = view.findViewById<ImageView>(R.id.cardImg)
             cardProgress = view.findViewById<ProgressBar>(R.id.cardProgress)
             cardView = view.findViewById<CardView>(R.id.card_disciplinas)
-
+            cardCapital = view.findViewById(R.id.cardCapital)
+            cardLongitude = view.findViewById(R.id.cardLongitude)
+            cardLatitude = view.findViewById(R.id.cardLatitude)
+            cardPopulacao = view.findViewById(R.id.cardPopulacao)
         }
 
     }
@@ -55,24 +66,35 @@ class PaisesAdapter (
         // recuperar objeto disciplina
         val paises = disciplinas[position]
 
+        val capital = paises.capital
+        val continente = paises.continente
+        val latitude = paises.latitude
+        val longitude = paises.longitude
+        val populacao = paises.populacao
         // atualizar dados de disciplina
 
         holder.cardNome.text = paises.nome
+        holder.cardCapital.text = "Capital: $capital"
+        holder.cardLocalization.text = "Continente: $continente"
+        holder.cardLatitude.text = "Latitude: $latitude"
+        holder.cardLongitude.text = "Longitude: $longitude"
+        holder.cardPopulacao.text = "População: $populacao"
         holder.cardProgress.visibility = View.VISIBLE
 
         // download da imagem
         Picasso.with(context).load(paises.bandeira).fit().into(holder.cardImg,
-                object: com.squareup.picasso.Callback{
-                    override fun onSuccess() {
-                        holder.cardProgress.visibility = View.GONE
-                    }
+            object: com.squareup.picasso.Callback{
+                override fun onSuccess() {
+                    holder.cardProgress.visibility = View.GONE
+                }
 
-                    override fun onError() {
-                        holder.cardProgress.visibility = View.GONE
-                    }
-                })
+                override fun onError() {
+                    holder.cardProgress.visibility = View.GONE
+                }
+            })
 
         // adiciona evento de clique
-        holder.itemView.setOnClickListener {onClick(paises)}
+//        holder.itemView.setOnClickListener {onClick(paises)}
+        holder.itemView.setOnClickListener {}
     }
 }

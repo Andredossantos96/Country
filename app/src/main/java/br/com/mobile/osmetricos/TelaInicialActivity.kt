@@ -37,7 +37,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
         Toast.makeText(this, "Nome do usuário: $usuario", Toast.LENGTH_LONG).show()
 
-       // mensagemInicial.text = "Bem vindo $usuario"
+        // mensagemInicial.text = "Bem vindo $usuario"
 
 
         botaoSair.setOnClickListener {cliqueSair()}
@@ -56,7 +56,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         recyclerDisciplinas?.itemAnimator = DefaultItemAnimator()
         recyclerDisciplinas?.setHasFixedSize(true)
 
-        val intentPaises = Intent(this, PaisesBarraLateralActivity::class.java)
+        val intentPaises = Intent(this, PaisesActivity::class.java)
         val intentinformacoes = Intent(this, InformacoesActivity::class.java)
         val intentlocalizacao = Intent(this, LocalizacaoActivity::class.java)
         menu_lateral.setNavigationItemSelectedListener {
@@ -64,6 +64,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
                 R.id.nav_diciplinas -> startActivity(intentPaises)
                 R.id.nav_forum -> startActivity(intentinformacoes)
                 R.id.nav_localizacao -> startActivity(intentlocalizacao)
+                R.id.nav_sair -> finish()
             }
             true
         }
@@ -86,18 +87,18 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
                 // Código para atualizar a UI com a lista de disciplinas
                 recyclerDisciplinas?.adapter = PaisesAdapter(paises) { onClickPais(it) }
                 // enviar notificação
-               // enviaNotificacao(this.disciplinas.get(0))
+                // enviaNotificacao(this.disciplinas.get(0))
 
             }
         }.start()
 
     }
 
-   /* fun taskPaises() {
-        this.paises = PaisesService.getDisciplinas(context)
-        // atualizar lista
-        recyclerDisciplinas?.adapter = PaisesAdapter(paises) {onClickPais(it)}
-    }*/
+    /* fun taskPaises() {
+         this.paises = PaisesService.getDisciplinas(context)
+         // atualizar lista
+         recyclerDisciplinas?.adapter = PaisesAdapter(paises) {onClickPais(it)}
+     }*/
 
     fun onClickPais(pais: Paises) {
         Toast.makeText(context, "Clicou pais ${pais.nome}", Toast.LENGTH_SHORT).show()
@@ -122,21 +123,11 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             R.id.nav_diciplinas -> {
                 Toast.makeText(this, "Países", Toast.LENGTH_SHORT).show()
             }
-
-            R.id.nav_mensagens -> {
-                Toast.makeText(this, "Mensagens", Toast.LENGTH_SHORT).show()
-            }
-
             R.id.nav_forum -> {
                 Toast.makeText(this, "Informações", Toast.LENGTH_SHORT).show()
             }
-
             R.id.nav_localizacao -> {
                 Toast.makeText(this, "Localização", Toast.LENGTH_SHORT).show()
-            }
-
-            R.id.nav_config -> {
-                Toast.makeText(this, "Config", Toast.LENGTH_SHORT).show()
             }
         }
 

@@ -17,8 +17,10 @@
         <activity
             android:name=".InformacoesActivity"
             android:exported="false" />
+        <activity android:name=".PaisesBarraLateralActivity"
+            android:exported="false" />
         <activity
-            android:name=".infomarcoesActivity"
+            android:name=".PaisesActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

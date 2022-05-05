@@ -6,4 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".InformacoesActivity">
 
+
+    <TextView
+        android:id="@+id/texto_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aplicativo desenvolvido para facilitar a busca e informações sobre os países do mundo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerInformacoes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="@android:color/transparent"
+            android:clipToPadding="false"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:listSelector="@android:color/transparent"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical"></androidx.recyclerview.widget.RecyclerView>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
