@@ -12,12 +12,12 @@ import android.widget.Toast
 import com.squareup.picasso.Picasso
 
 
-// define o construtor que recebe a lista de disciplinas e o evento de clique
+
 class PaisesAdapter (
     val disciplinas: List<Paises>,
     val onClick: (Paises) -> Unit): RecyclerView.Adapter<PaisesAdapter.DisciplinasViewHolder>() {
 
-    // ViewHolder com os elemetos da tela
+
     class DisciplinasViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val cardNome: TextView
         val cardCapital: TextView
@@ -43,27 +43,27 @@ class PaisesAdapter (
 
     }
 
-    // Quantidade de disciplinas na lista
+
 
     override fun getItemCount() = this.disciplinas.size
 
-    // inflar layout do adapter
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DisciplinasViewHolder {
-        // infla view no adapter
+
         val view = LayoutInflater.from(parent.context).inflate(R.layout.adapter_paises, parent, false)
 
-        // retornar ViewHolder
+
         val holder = DisciplinasViewHolder(view)
         return holder
     }
 
-    // bind para atualizar Views com os dados
+
 
     override fun onBindViewHolder(holder: DisciplinasViewHolder, position: Int) {
         val context = holder.itemView.context
 
-        // recuperar objeto disciplina
+
         val paises = disciplinas[position]
 
         val capital = paises.capital
@@ -71,7 +71,7 @@ class PaisesAdapter (
         val latitude = paises.latitude
         val longitude = paises.longitude
         val populacao = paises.populacao
-        // atualizar dados de disciplina
+
 
         holder.cardNome.text = paises.nome
         holder.cardCapital.text = "Capital: $capital"
@@ -81,7 +81,7 @@ class PaisesAdapter (
         holder.cardPopulacao.text = "População: $populacao"
         holder.cardProgress.visibility = View.VISIBLE
 
-        // download da imagem
+
         Picasso.with(context).load(paises.bandeira).fit().into(holder.cardImg,
             object: com.squareup.picasso.Callback{
                 override fun onSuccess() {
@@ -93,8 +93,7 @@ class PaisesAdapter (
                 }
             })
 
-        // adiciona evento de clique
-//        holder.itemView.setOnClickListener {onClick(paises)}
+
         holder.itemView.setOnClickListener {}
     }
 }

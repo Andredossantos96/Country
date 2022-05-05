@@ -13,8 +13,4 @@ class Paises : Serializable {
     var nome = ""
     var populacao = ""
 
-
-   /* override fun toString(): String {
-        return "Pais(nome='$nome')"
-    }*/
 }
