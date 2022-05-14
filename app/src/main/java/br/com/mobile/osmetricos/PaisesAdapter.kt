@@ -8,17 +8,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import com.squareup.picasso.Picasso
 
 
 
 class PaisesAdapter (
-    val disciplinas: List<Paises>,
-    val onClick: (Paises) -> Unit): RecyclerView.Adapter<PaisesAdapter.DisciplinasViewHolder>() {
+    val paises: List<Paises>,
+    val onClick: (Paises) -> Unit): RecyclerView.Adapter<PaisesAdapter.PaisesViewHolder>() {
 
 
-    class DisciplinasViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class PaisesViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val cardNome: TextView
         val cardCapital: TextView
         val cardLongitude: TextView
@@ -45,26 +44,26 @@ class PaisesAdapter (
 
 
 
-    override fun getItemCount() = this.disciplinas.size
+    override fun getItemCount() = this.paises.size
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DisciplinasViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PaisesViewHolder {
 
         val view = LayoutInflater.from(parent.context).inflate(R.layout.adapter_paises, parent, false)
 
 
-        val holder = DisciplinasViewHolder(view)
+        val holder = PaisesViewHolder(view)
         return holder
     }
 
 
 
-    override fun onBindViewHolder(holder: DisciplinasViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PaisesViewHolder, position: Int) {
         val context = holder.itemView.context
 
 
-        val paises = disciplinas[position]
+        val paises = paises[position]
 
         val capital = paises.capital
         val continente = paises.continente

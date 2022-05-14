@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PaisesCadastroActivity">
+
+
+
+    <EditText
+        android:id="@+id/urlFotoBandeira"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="URL: Foto da Bandeira"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:id="@+id/nomePais"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="País"
+        android:inputType="textPersonName"/>
+
+
+    <EditText
+        android:id="@+id/continente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Continente"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:id="@+id/nomecapital"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Capital"
+        android:inputType="textPersonName"/>
+
+
+
+    <EditText
+        android:id="@+id/nomeLongitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Longitude"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/nomeLatidude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Latidude"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/nomePopulacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="População"
+        android:inputType="textPersonName" />
+
+
+    <Button
+        android:id="@+id/salvarPais"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="salvar" />
+
+</LinearLayout>

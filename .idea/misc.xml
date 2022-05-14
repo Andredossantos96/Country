@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/andre/AndroidStudioProjects/Countries/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/andre/AndroidStudioProjects/Countries/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/andre/AndroidStudioProjects/Countries/app/src/main/res/layout/activity_cadastro_paises.xml" value="0.33" />
         <entry key="..\:/Users/andre/AndroidStudioProjects/Countries/app/src/main/res/layout/activity_infomarcoes.xml" value="0.192481884057971" />
         <entry key="..\:/Users/andre/AndroidStudioProjects/Countries/app/src/main/res/layout/activity_informacoes.xml" value="0.192481884057971" />
         <entry key="..\:/Users/andre/AndroidStudioProjects/Countries/app/src/main/res/layout/activity_informacoes2.xml" value="0.1937984496124031" />
@@ -19,7 +20,8 @@
         <entry key="..\:/Users/andre/AndroidStudioProjects/Countries/app/src/main/res/layout/menu_lateral_cabecalho.xml" value="0.25" />
         <entry key="..\:/Users/andre/AndroidStudioProjects/Countries/app/src/main/res/layout/toolbar.xml" value="0.1" />
         <entry key="..\:/Users/andre/AndroidStudioProjects/Countries/app/src/main/res/menu/menu_lateral.xml" value="0.22083333333333333" />
-        <entry key="..\:/Users/andre/AndroidStudioProjects/Countries/app/src/main/res/menu/menu_main.xml" value="0.33" />
+        <entry key="..\:/Users/andre/AndroidStudioProjects/Countries/app/src/main/res/menu/menu_main.xml" value="0.25" />
+        <entry key="..\:/Users/andre/AndroidStudioProjects/Countries/app/src/main/res/menu/menu_main_paises.xml" value="0.15648148148148147" />
         <entry key="..\:/Users/andre/AndroidStudioProjects/Countries/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
@@ -33,7 +35,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.1937984496124031" />
+        <option name="scale" value="0.33" />
       </ProjectState>
     </option>
   </component>

@@ -19,9 +19,23 @@ class MainActivity : DebugActivity() {
 
         campo_imagem.setImageResource(R.drawable.mundo_login)
 
+        // var nomeUsuario = Prefs.getString("nome")
+
         texto_login.text = getString(R.string.mensagem_login)
 
+
         botao_login.setOnClickListener {onClickLogin() }
+
+// procurar pelas preferências, se pediu para guardar usuário e senha
+        var lembrar = Prefs.getBoolean("lembrar")
+        if (lembrar) {
+            var lembrarNome  = Prefs.getString("lembrarNome")
+            var lembrarSenha  = Prefs.getString("lembrarSenha")
+            campo_usuario.setText(lembrarNome)
+            campo_senha.setText(lembrarSenha)
+            checkBoxLogin.isChecked = lembrar
+
+        }
 
 
     }
@@ -31,6 +45,16 @@ class MainActivity : DebugActivity() {
         val valorSenha = campo_senha.text.toString()
         Toast.makeText(context, "$valorUsuario ", Toast.LENGTH_LONG).show()
 
+
+        Prefs.setBoolean("lembrar", checkBoxLogin.isChecked)
+
+        if (checkBoxLogin.isChecked) {
+            Prefs.setString("lembrarNome", valorUsuario)
+            Prefs.setString("lembrarSenha", valorSenha)
+        } else{
+            Prefs.setString("lembrarNome", "")
+            Prefs.setString("lembrarSenha", "")
+        }
 
         val intent = Intent(context, TelaInicialActivity::class.java)
 

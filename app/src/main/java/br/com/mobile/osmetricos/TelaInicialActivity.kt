@@ -79,7 +79,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
 
         Thread {
-            paises = PaisesService.getDisciplinas()
+            paises = PaisesService.getPaises()
             runOnUiThread {
                 recyclerDisciplinas?.adapter = PaisesAdapter(paises) { onClickPais(it) }
             }
@@ -158,6 +158,9 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             Toast.makeText(context, "Botão de atualizar", Toast.LENGTH_LONG).show()
         } else if (id == R.id.action_config) {
             Toast.makeText(context, "Botão de configuracoes", Toast.LENGTH_LONG).show()
+        } else if (id==R.id.action_adicionar){
+            val intent = Intent(this, PaisesCadastroActivity::class.java)
+            startActivity(intent)
         }
         else if (id == android.R.id.home) {
             finish()
