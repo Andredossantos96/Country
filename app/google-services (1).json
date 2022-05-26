@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "95425586487",
+    "project_id": "country-2847f",
+    "storage_bucket": "country-2847f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95425586487:android:79694680b54c68854066b2",
+        "android_client_info": {
+          "package_name": "br.com.mobile.osmetricos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "95425586487-nas7qd7u1s28rr7chbd1cg2nlaai65m3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXSDn6_lPMnAUAVe1iAuST1v9u63eaxiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "95425586487-nas7qd7u1s28rr7chbd1cg2nlaai65m3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

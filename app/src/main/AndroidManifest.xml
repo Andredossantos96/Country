@@ -39,6 +39,10 @@
             android:name=".TelaInicialActivity"
             android:theme="@style/AppTheme.Toolbar" />
         <activity android:name=".PaisesCadastroActivity"></activity>
+
+
+
+
     </application>
 
 </manifest>

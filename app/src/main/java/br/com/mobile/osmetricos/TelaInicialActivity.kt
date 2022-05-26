@@ -4,10 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Looper
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.SearchView
@@ -16,7 +14,6 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_tela_inicial.*
-import kotlinx.android.synthetic.main.menu_lateral_cabecalho.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 
@@ -82,9 +79,20 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             paises = PaisesService.getPaises()
             runOnUiThread {
                 recyclerDisciplinas?.adapter = PaisesAdapter(paises) { onClickPais(it) }
+                // enviar notificação
+                enviaNotificacao(this.paises.get(0))
             }
         }.start()
 
+    }
+
+    fun enviaNotificacao(pais: Paises) {
+        // Intent para abrir tela quando clicar na notificação
+        val intent = Intent(this, PaisesActivity::class.java)
+        // parâmetros extras
+        intent.putExtra("pais", pais)
+        // Disparar notificação
+        NotificationUtil.create(this, 1, intent, "LMSApp", "Você tem nova atividade na ${pais.nome}")
     }
 
 
@@ -156,6 +164,8 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             Toast.makeText(context, "Botão de buscar", Toast.LENGTH_LONG).show()
         } else if (id == R.id.action_atualizar) {
             Toast.makeText(context, "Botão de atualizar", Toast.LENGTH_LONG).show()
+        } else if (id == R.id.action_remover) {
+            Toast.makeText(context, "Botão de Remover", Toast.LENGTH_LONG).show()
         } else if (id == R.id.action_config) {
             Toast.makeText(context, "Botão de configuracoes", Toast.LENGTH_LONG).show()
         } else if (id==R.id.action_adicionar){
