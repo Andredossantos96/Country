@@ -93,6 +93,6 @@ class PaisesAdapter (
             })
 
 
-        holder.itemView.setOnClickListener {}
+        holder.itemView.setOnClickListener{onClick(paises)}
     }
 }

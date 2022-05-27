@@ -28,7 +28,7 @@
                 android:orientation="vertical"
                 android:padding="2dp">
                 <ImageView
-                    android:id="@+id/imagemDisciplina"
+                    android:id="@+id/imagemBandeira"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_gravity="center"
@@ -43,7 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
-                        android:id="@+id/nomeDisciplina"
+                        android:id="@+id/nomePais"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"/>

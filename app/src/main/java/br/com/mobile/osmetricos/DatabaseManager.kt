@@ -12,7 +12,7 @@ object DatabaseManager {
         dbInstance = Room.databaseBuilder(
             appContext, // contexto global
             LMSDatabase::class.java, // Referência da classe do banco
-            "lmsss.sqlite" // nome do arquivo do banco
+            "teste.sqlite" // nome do arquivo do banco
         ).build()
     }
 

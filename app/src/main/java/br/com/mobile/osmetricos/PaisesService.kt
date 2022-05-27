@@ -1,57 +1,36 @@
 package br.com.mobile.osmetricos
 
-import android.util.Log
+import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import java.net.URL
 
 object PaisesService {
 
-    val host = "https://osmetricos.com.br"
+    val host = "https://osmetricos.com.br1"
     val TAG = "WS_LMSApp"
 
 
-    /*fun getPaises (context: Context, id: Long): Paises? {
-
-        if (AndroidUtils.isInternetDisponivel()) {
-            val url = "$host/paises/${id}"
-            val json = HttpHelper.get(url)
-            val paises = parserJson<Paises>(json)
-
-            return paises
-        } else {
-            val dao = DatabaseManager.getPaisesDAO()
-            val paises = dao.getById(id)
-            return paises
-        }*/
-
-    fun getPaises (): List<Paises> {
-        //val paises = mutableListOf<Paises>()
+    fun getPaises (context: Context): List<Paises> {
+        var paises = ArrayList<Paises>()
         try {
-            var url = "$host/paises"
-            val json = URL(url).readText()
-            Log.d(TAG, json)
-            return parserJson<List<Paises>>(json)
+            val url = "$host/paises"
+            val json = HttpHelper.get(url)
+            paises = parserJson(json)
+            // salvar offline
+            for (d in paises) {
+                saveOffline(d)
+            }
+            return paises
         } catch (ex: Exception) {
-            var paises = DatabaseManager.getPaisesDAO().findAll()
+            val dao = DatabaseManager.getPaisesDAO()
+            val paises = dao.findAll()
             return paises
         }
 
     }
 
 
-    fun savePaises(disciplina: Paises): Response {
-        if (AndroidUtils.isInternetDisponivel()) {
-            val json = HttpHelper.post("$host/paises", disciplina.toJson())
-            return parserJson(json)
-        }
-        else {
-            saveOffline(disciplina)
-            return Response("OK", "Disciplina salva no dispositivo")
-        }
-    }
-
-   /* fun savePaises(paises: Paises): Response {
+    fun savePaises(paises: Paises): Response {
         try {
             val json = HttpHelper.post("$host/paises", paises.toJson())
             return parserJson(json)
@@ -59,36 +38,39 @@ object PaisesService {
             DatabaseManager.getPaisesDAO().insert(paises)
             return Response("ok", "ok")
         }
-    }*/
+    }
 
-    fun saveOffline(disciplina: Paises) : Boolean {
+    fun saveOffline(paises: Paises) : Boolean {
         val dao = DatabaseManager.getPaisesDAO()
 
-        if (! existePais(disciplina)) {
-            dao.insert(disciplina)
+        if (! existeDisciplina(paises)) {
+            dao.insert(paises)
         }
 
         return true
 
     }
 
-    fun existePais(disciplina: Paises): Boolean {
+    fun existeDisciplina(paises: Paises): Boolean {
         val dao = DatabaseManager.getPaisesDAO()
-        return dao.getById(disciplina.id) != null
+        return dao.getById(paises.id) != null
     }
 
-    fun delete(disciplina: Paises): Response {
-        if (AndroidUtils.isInternetDisponivel()) {
-            val url = "$host/paises/${disciplina.id}"
+
+    fun delete(paises: Paises): Response {
+        try {
+
+            val url = "$host/paises/${paises.id}"
             val json = HttpHelper.delete(url)
 
             return parserJson(json)
-        } else {
+
+
+        } catch (ex: Exception) {
             val dao = DatabaseManager.getPaisesDAO()
-            dao.delete(disciplina)
+            dao.delete(paises)
             return Response(status = "OK", msg = "Dados salvos localmente")
         }
-
     }
 
 

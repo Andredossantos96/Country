@@ -22,9 +22,7 @@
             android:exported="false" />
         <activity android:name=".PaisesBarraLateralActivity"
             android:exported="false" />
-        <activity
-            android:name=".PaisesActivity"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -38,11 +36,13 @@
         <activity
             android:name=".TelaInicialActivity"
             android:theme="@style/AppTheme.Toolbar" />
+
+
+        <activity
+            android:name=".PaisesActivity"
+            android:parentActivityName=".TelaInicialActivity"
+            android:theme="@style/AppTheme.Toolbar" />
         <activity android:name=".PaisesCadastroActivity"></activity>
-
-
-
-
     </application>
 
 </manifest>

@@ -4,16 +4,21 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Looper
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+
+import br.com.mobile.osmetricos.PaisesActivity
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_tela_inicial.*
+import kotlinx.android.synthetic.main.menu_lateral_cabecalho.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 
@@ -22,6 +27,9 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
     private val context: Context get() = this
     private var paises = listOf<Paises>()
+    private var REQUEST_CADASTRO = 1
+    private var REQUEST_REMOVE= 2
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,7 +66,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         val intentlocalizacao = Intent(this, LocalizacaoActivity::class.java)
         menu_lateral.setNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.nav_diciplinas -> startActivity(intentPaises)
+                R.id.nav_paises -> startActivity(intentPaises)
                 R.id.nav_forum -> startActivity(intentinformacoes)
                 R.id.nav_localizacao -> startActivity(intentlocalizacao)
                 R.id.nav_sair -> finish()
@@ -76,31 +84,20 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
 
         Thread {
-            paises = PaisesService.getPaises()
+            paises = PaisesService.getPaises(context)
             runOnUiThread {
                 recyclerDisciplinas?.adapter = PaisesAdapter(paises) { onClickPais(it) }
-                // enviar notificação
-                enviaNotificacao(this.paises.get(0))
             }
         }.start()
 
-    }
-
-    fun enviaNotificacao(pais: Paises) {
-        // Intent para abrir tela quando clicar na notificação
-        val intent = Intent(this, PaisesActivity::class.java)
-        // parâmetros extras
-        intent.putExtra("pais", pais)
-        // Disparar notificação
-        NotificationUtil.create(this, 1, intent, "LMSApp", "Você tem nova atividade na ${pais.nome}")
     }
 
 
     fun onClickPais(pais: Paises) {
         Toast.makeText(context, "Clicou pais ${pais.nome}", Toast.LENGTH_SHORT).show()
         val intent = Intent(context, PaisesActivity::class.java)
-        intent.putExtra("paise", pais)
-        startActivity(intent)
+        intent.putExtra("pais", pais)
+        startActivityForResult(intent, REQUEST_REMOVE)
     }
 
     private fun configuraMenuLateral() {
@@ -116,7 +113,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_diciplinas -> {
+            R.id.nav_paises -> {
                 Toast.makeText(this, "Países", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_forum -> {
@@ -164,17 +161,24 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             Toast.makeText(context, "Botão de buscar", Toast.LENGTH_LONG).show()
         } else if (id == R.id.action_atualizar) {
             Toast.makeText(context, "Botão de atualizar", Toast.LENGTH_LONG).show()
-        } else if (id == R.id.action_remover) {
-            Toast.makeText(context, "Botão de Remover", Toast.LENGTH_LONG).show()
         } else if (id == R.id.action_config) {
             Toast.makeText(context, "Botão de configuracoes", Toast.LENGTH_LONG).show()
         } else if (id==R.id.action_adicionar){
-            val intent = Intent(this, PaisesCadastroActivity::class.java)
-            startActivity(intent)
+            // iniciar activity de cadastro
+            val intent = Intent(context, PaisesCadastroActivity::class.java)
+            startActivityForResult(intent, REQUEST_CADASTRO)
         }
         else if (id == android.R.id.home) {
             finish()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CADASTRO || requestCode == REQUEST_REMOVE ) {
+            // atualizar lista de disciplinas
+            taskPaises()
+        }
     }
 }
