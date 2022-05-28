@@ -11,4 +11,6 @@
 
     <string name="navigation_drawer_open">Abrir</string>
     <string name="navigation_drawer_close">Fechar</string>
+
+    <string name="API_KEY">AIzaSyCTEBJXUFC0INXcjx9Fyw909U7iEsrH5pg</string>
 </resources>

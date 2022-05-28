@@ -6,7 +6,7 @@ import com.google.gson.reflect.TypeToken
 
 object PaisesService {
 
-    val host = "https://osmetricos.com.br1"
+    val host = "https://osmetricos.com.br"
     val TAG = "WS_LMSApp"
 
 

@@ -122,6 +122,10 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
             R.id.nav_localizacao -> {
                 Toast.makeText(this, "Localização", Toast.LENGTH_SHORT).show()
             }
+           /* R.id.nav_localizacao -> {
+                var intent = Intent(this, MapasActivity::class.java)
+                startActivity(intent)
+            }*/
         }
 
         layoutMenuLateral.closeDrawer(GravityCompat.START)
